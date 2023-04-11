@@ -16,6 +16,9 @@ const App = () => {
     'The only way to go fast, is to go well.'
   ]
 
+  const [anecdotesPoints, setAnecdotesPoints] = useState(Array(anecdotes.length).fill(0))
+
+  // Select the first anecdote to display randomly
   const randomNumber = Math.floor(Math.random() * anecdotes.length)
   const [selected, setSelected] = useState(randomNumber)
 
@@ -25,9 +28,18 @@ const App = () => {
     setSelected(randomNumber)
   }
 
+  const voteCurrentAnecdote = () => {
+    const newPoints = [ ...anecdotesPoints ]
+    newPoints[selected] += 1
+    setAnecdotesPoints(newPoints)
+    console.log('Points', newPoints)
+  }
+
   return (
     <div>
       <p>{anecdotes[selected]}</p>
+      <p>has {anecdotesPoints[selected]} votes</p>
+      <Button handleClick={voteCurrentAnecdote} label='Vote' />
       <Button handleClick={selectRandomAnecdote} label='Next Anecdote' />
     </div>
   )
