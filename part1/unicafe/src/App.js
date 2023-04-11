@@ -25,7 +25,7 @@ const Statistics = ({feedback}) => {
   const positivePercentage = (feedback.good / total) * 100
 
   // If there's no feedback, display a message instead of stats
-  if (feedback.good == 0 && feedback.neutral == 0 && feedback.bad == 0) {
+  if (feedback.good === 0 && feedback.neutral === 0 && feedback.bad === 0) {
     return (
       <div>
         <Header header={'Statistics'}/>
