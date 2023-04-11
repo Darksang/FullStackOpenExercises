@@ -7,7 +7,7 @@ const Header = ({header}) => {
 }
 
 const Stat = ({stat, count}) => {
-  console.log(stat, count)
+  //console.log(stat, count)
   return (
     <p>{stat}: {count}</p>
   )
@@ -22,6 +22,12 @@ const App = () => {
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
 
+  const total = good + neutral + bad
+  const positivePercentage = (good / total) * 100
+
+  // (good: 1, neutral: 0, bad: -1)
+  const averageScore = ((good * 1) + (neutral * 0) + (bad * -1)) / total
+
   return (
     <div>
       <Header header={'Give Feedback'}/>
@@ -35,6 +41,9 @@ const App = () => {
       <Stat stat={'Good Feedback'} count={good}/>
       <Stat stat={'Neutral Feedback'} count={neutral}/>
       <Stat stat={'Bad Feedback'} count={bad}/>
+      <Stat stat={'All Feedback'} count={total}/>
+      <Stat stat={'Average Score'} count={averageScore}/>
+      <Stat stat={'Positive Percentage'} count={`${positivePercentage}%`}/>
     </div>
   )
 }
