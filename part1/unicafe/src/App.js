@@ -6,10 +6,10 @@ const Header = ({header}) => {
   )
 }
 
-const Stat = ({stat, count}) => {
-  //console.log(stat, count)
+const StatisticLine = ({text, value}) => {
+  //console.log(text, value)
   return (
-    <p>{stat}: {count}</p>
+    <p>{text}: {value}</p>
   )
 }
 
@@ -34,12 +34,12 @@ const Statistics = ({feedback}) => {
   return (
     <div>
       <Header header={'Statistics'}/>
-      <Stat stat={'Good Feedback'} count={feedback.good}/>
-      <Stat stat={'Neutral Feedback'} count={feedback.neutral}/>
-      <Stat stat={'Bad Feedback'} count={feedback.bad}/>
-      <Stat stat={'All Feedback'} count={total}/>
-      <Stat stat={'Average Score'} count={averageScore}/>
-      <Stat stat={'Positive Percentage'} count={`${positivePercentage}%`}/>
+      <StatisticLine text={'Good Feedback'} value={feedback.good}/>
+      <StatisticLine text={'Neutral Feedback'} value={feedback.neutral}/>
+      <StatisticLine text={'Bad Feedback'} value={feedback.bad}/>
+      <StatisticLine text={'All Feedback'} value={total}/>
+      <StatisticLine text={'Average Score'} value={averageScore}/>
+      <StatisticLine text={'Positive Percentage'} value={`${positivePercentage}%`}/>
     </div>
   )
 }
